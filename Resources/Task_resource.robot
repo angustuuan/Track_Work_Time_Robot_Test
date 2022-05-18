@@ -73,7 +73,3 @@ Click Toggle Activation State
 Click Delete Task
     Wait Until Page Contains Element    ${DELETE_TASK_VIEW}
     Click Element    ${DELETE_TASK_VIEW}
-
-Verify Expected Task Show In Edit Tasks Page
-    [Arguments]    ${EXPECTED_TASK_XPATH}
-    Wait Until Page Contains Element    ${EXPECTED_TASK_XPATH}

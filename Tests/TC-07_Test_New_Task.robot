@@ -19,4 +19,4 @@ New Task
     Select New Task
     Input Task Name    ${TASK_NAME}
     Click OK Button
-    Verify Expected Task Show In Edit Tasks Page    ${NEW_TASK_XPATH}
+    Page Should Contain Element    ${NEW_TASK_XPATH}

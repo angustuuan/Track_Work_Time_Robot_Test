@@ -26,5 +26,5 @@ Rename Task
     Clear Input Task Name
     Input Task Name    ${UPDATED_TASK_NAME}
     Click OK Button
-    Verify Expected Task Show In Edit Tasks Page    ${UPDATED_TASK_XPATH}
+    Page Should Contain Element    ${UPDATED_TASK_XPATH}
 
