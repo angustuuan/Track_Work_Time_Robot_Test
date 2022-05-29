@@ -1,22 +1,50 @@
 *** Setting ***
+Library  String
 Resource    ../Resources/Main_resource.robot
 Resource    ../Resources/Task_resource.robot
 
 Test Setup    Run Keywords    Open TrackWorkTime Without Allow Permission
 ...    AND    Open Navigation Drawer
 ...    AND    Enter Edit Tasks Page
-Test Teardown    Run Keywords    Click Task    ${NEW_TASK_XPATH}
-...    AND    Click Delete Task
-...    AND    Click OK Button
-...    AND    Close Application
+Test Teardown    Close Application
 
 *** Variables ***
-${TASK_NAME}    ROBOT_TEST
-${NEW_TASK_XPATH}    //android.widget.TextView[@text='${TASK_NAME}']
+&{TASK_NAME}    English=robotTest    Chinese=自動化測試    Number=9487
+...    Symbol=^%$#@!&*(    Mixed=!*自動化Test321    Empty=${EMPTY}
 
 *** Test Cases ***
+Create Task With Different Task Name
+    [Template]    New Task
+    ${TASK_NAME}[English]
+    ${TASK_NAME}[Chinese]
+    ${TASK_NAME}[Number]
+    ${TASK_NAME}[Symbol]
+    ${TASK_NAME}[Mixed]
+    ${TASK_NAME}[Empty]
+
+Create Task With Random Task Name
+    ${RANDOM} =    Generate Random String
+    New Task    ${RANDOM}
+
+Task Should Not Create When Cancel
+    Select New Task
+    Input Task Name    ${TASK_NAME}[English]
+    Click Cancel Button
+    Wait Until Page Does Not Contain Element    //android.widget.TextView[@text='${TASK_NAME}[English]']
+    Page Should Not Contain Element    //android.widget.TextView[@text='${TASK_NAME}[English]']
+
+*** Keywords ***
 New Task
+    [Arguments]    ${TASK_NAME}
     Select New Task
     Input Task Name    ${TASK_NAME}
     Click OK Button
-    Page Should Contain Element    ${NEW_TASK_XPATH}
+    Wait Until Page Contains Element    //android.widget.TextView[@text='${TASK_NAME}']
+    Page Should Contain Element    //android.widget.TextView[@text='${TASK_NAME}']
+    Teardown for template    ${TASK_NAME}
+
+Teardown for template
+    [Arguments]    ${TASK_NAME}
+    Click Task    //android.widget.TextView[@text='${TASK_NAME}']
+    Click Delete Task
+    Click OK Button
