@@ -1,190 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.10.4 on win32)" generated="20220516 21:52:05.635" rpa="false" schemaversion="3">
-<suite id="s1" name="TC-07 Test New Task" source="C:\Development\softwareTest\Track_Work_Time_Robot_Test\Tests\TC-07_Test_New_Task.robot">
-<test id="s1-t1" name="New Task" line="14">
-<kw name="Open TrackWorkTime Without Allow Permission" library="Main_resource" type="SETUP">
-<kw name="Open Application" library="AppiumLibrary">
-<arg>${APPIUM_URL}</arg>
-<arg>platformName=${PLATFORM_NAME}</arg>
-<arg>deviceName=${DEVICE_NAME}</arg>
-<arg>appPackage=${APP_PACKAGE}</arg>
-<arg>appActivity=${APP_ACTIVITY}</arg>
-<arg>automationName=${AUTOMATION_NAME}</arg>
-<doc>Opens a new application to given Appium server.
-Capabilities of appium server, Android and iOS,
-Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
-| *Option*            | *Man.* | *Description*     |
-| remote_url          | Yes    | Appium server url |
-| alias               | no     | alias             |</doc>
-<status status="PASS" starttime="20220516 21:52:05.810" endtime="20220516 21:52:12.689"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${NOT_NOW_STORAGE_PERMISSION_BUTTON}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:12.689" endtime="20220516 21:52:13.847"/>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${NOT_NOW_STORAGE_PERMISSION_BUTTON}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:13.849" level="INFO">Clicking element '//android.widget.Button[@text='NOT NOW']'.</msg>
-<status status="PASS" starttime="20220516 21:52:13.847" endtime="20220516 21:52:13.971"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${NO_BACKUP_BUTTON}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:13.971" endtime="20220516 21:52:14.067"/>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${NO_BACKUP_BUTTON}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:14.069" level="INFO">Clicking element '//android.widget.Button[@text='NO']'.</msg>
-<status status="PASS" starttime="20220516 21:52:14.067" endtime="20220516 21:52:14.590"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:05.809" endtime="20220516 21:52:14.591"/>
-</kw>
-<kw name="Open Navigation Drawer" library="Main_resource">
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${NAVIGATION_DRAWER_BUTTON}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:14.591" endtime="20220516 21:52:14.755"/>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${NAVIGATION_DRAWER_BUTTON}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:14.757" level="INFO">Clicking element '//android.widget.ImageButton[@content-desc='Open navigation drawer']'.</msg>
-<status status="PASS" starttime="20220516 21:52:14.755" endtime="20220516 21:52:15.256"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:14.591" endtime="20220516 21:52:15.256"/>
-</kw>
-<kw name="Enter Edit Tasks Page" library="Task_resource">
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${EDIT_TASKS_VIEW}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:15.257" endtime="20220516 21:52:15.847"/>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${EDIT_TASKS_VIEW}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:15.848" level="INFO">Clicking element '//android.widget.CheckedTextView[@text='Edit Tasks']'.</msg>
-<status status="PASS" starttime="20220516 21:52:15.847" endtime="20220516 21:52:16.409"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:15.257" endtime="20220516 21:52:16.409"/>
-</kw>
-<kw name="Select New Task" library="Task_resource">
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${MORE_OPTIONS_VIEW}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:16.410" endtime="20220516 21:52:17.209"/>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${MORE_OPTIONS_VIEW}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:17.210" level="INFO">Clicking element '//android.widget.ImageView[@content-desc='More options']'.</msg>
-<status status="PASS" starttime="20220516 21:52:17.209" endtime="20220516 21:52:17.263"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${NEW_TASK_VIEW}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:17.263" endtime="20220516 21:52:18.166"/>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${NEW_TASK_VIEW}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:18.168" level="INFO">Clicking element '//android.widget.TextView[@text='New Task']'.</msg>
-<status status="PASS" starttime="20220516 21:52:18.166" endtime="20220516 21:52:18.260"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:16.409" endtime="20220516 21:52:18.260"/>
-</kw>
-<kw name="Enter Task Name" library="Task_resource">
-<arg>${INPUT_TEXT}</arg>
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${EDIT_TEXT_PANNEL}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:18.261" endtime="20220516 21:52:19.083"/>
-</kw>
-<kw name="Input Text" library="AppiumLibrary">
-<arg>${EDIT_TEXT_PANNEL}</arg>
-<arg>${INPUT_TEXT}</arg>
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:19.084" level="INFO">Typing text 'ROBOT_TEST' into text field '//android.widget.EditText'</msg>
-<status status="PASS" starttime="20220516 21:52:19.083" endtime="20220516 21:52:19.148"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:18.260" endtime="20220516 21:52:19.148"/>
-</kw>
-<kw name="Click OK Button" library="Task_resource">
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${OK_BUTTON}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:19.150" level="INFO">Clicking element '//android.widget.Button[@text='OK']'.</msg>
-<status status="PASS" starttime="20220516 21:52:19.149" endtime="20220516 21:52:19.705"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:19.149" endtime="20220516 21:52:19.705"/>
-</kw>
-<kw name="Verify Added Task Show In Edit Tasks Page" library="Task_resource">
-<arg>${EXPECTED_TASK_XPATH}</arg>
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${EXPECTED_TASK_XPATH}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:19.706" endtime="20220516 21:52:19.772"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:19.706" endtime="20220516 21:52:19.772"/>
-</kw>
-<kw name="Run Keywords" library="BuiltIn" type="TEARDOWN">
-<arg>Delete Task</arg>
-<arg>${EXPECTED_TASK_XPATH}</arg>
-<arg>AND</arg>
-<arg>Close Application</arg>
-<doc>Executes all the given keywords in a sequence.</doc>
-<kw name="Delete Task" library="Task_resource">
-<arg>${EXPECTED_TASK_XPATH}</arg>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${EXPECTED_TASK_XPATH}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:19.774" level="INFO">Clicking element '//android.widget.TextView[@text='ROBOT_TEST']'.</msg>
-<status status="PASS" starttime="20220516 21:52:19.773" endtime="20220516 21:52:20.374"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${DELETE_TASK_VIEW}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:20.374" endtime="20220516 21:52:21.107"/>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${DELETE_TASK_VIEW}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:21.109" level="INFO">Clicking element '//android.widget.TextView[@text='Delete Task']'.</msg>
-<status status="PASS" starttime="20220516 21:52:21.107" endtime="20220516 21:52:21.775"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<arg>${OK_BUTTON}</arg>
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220516 21:52:21.775" endtime="20220516 21:52:21.804"/>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<arg>${OK_BUTTON}</arg>
-<doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220516 21:52:21.805" level="INFO">Clicking element '//android.widget.Button[@text='OK']'.</msg>
-<status status="PASS" starttime="20220516 21:52:21.804" endtime="20220516 21:52:21.850"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:19.773" endtime="20220516 21:52:21.850"/>
-</kw>
-<kw name="Close Application" library="AppiumLibrary">
-<doc>Closes the current application and also close webdriver session.</doc>
-<status status="PASS" starttime="20220516 21:52:21.850" endtime="20220516 21:52:22.092"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:19.772" endtime="20220516 21:52:22.092"/>
-</kw>
-<status status="PASS" starttime="20220516 21:52:05.809" endtime="20220516 21:52:22.093"/>
+<robot generator="Robot 5.0.1 (Python 3.10.1 on win32)" generated="20220529 15:36:36.614" rpa="false" schemaversion="3">
+<suite id="s1" name="TC-17 Flexi Time Balancing" source="D:\Software Testing\team project\Tests\TC-17_Flexi_Time_Balancing.robot">
+<test id="s1-t1" line="31">
+<status status="FAIL" starttime="20220529 15:36:36.890" endtime="20220529 15:36:36.891">Test name cannot be empty.</status>
 </test>
-<status status="PASS" starttime="20220516 21:52:05.636" endtime="20220516 21:52:22.094"/>
+<status status="FAIL" starttime="20220529 15:36:36.617" endtime="20220529 15:36:36.892"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="TC-07 Test New Task">TC-07 Test New Task</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC-17 Flexi Time Balancing">TC-17 Flexi Time Balancing</stat>
 </suite>
 </statistics>
 <errors>
