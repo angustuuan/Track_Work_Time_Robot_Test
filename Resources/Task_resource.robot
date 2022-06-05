@@ -73,3 +73,19 @@ Click Toggle Activation State
 Click Delete Task
     Wait Until Page Contains Element    ${DELETE_TASK_VIEW}
     Click Element    ${DELETE_TASK_VIEW}
+
+Create Task
+    [Arguments]    ${TASK_NAME}
+    Select New Task
+    Input Task Name    ${TASK_NAME}
+    Click OK Button
+    Wait Until Page Contains Element    //android.widget.TextView[@text='${TASK_NAME}']
+    Page Should Contain Element    //android.widget.TextView[@text='${TASK_NAME}']
+
+Delete Task
+    [Arguments]    ${TASK_NAME}
+    Click Task    //android.widget.TextView[@text='${TASK_NAME}']
+    Click Delete Task
+    Click OK Button
+    Wait Until Page Does Not Contain Element    //android.widget.TextView[@text='${TASK_NAME}']
+    Page Should Not Contain Element    //android.widget.TextView[@text='${TASK_NAME}']
