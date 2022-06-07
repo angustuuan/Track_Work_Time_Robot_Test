@@ -26,7 +26,9 @@ Tracking Event With Default Task And Hint
     Tracking Event    ${TASK_NAME}[Default]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]
 
 Tracking Event With Task Selected
-    New Task    ${TASK_NAME}[TaskForTest]
+    Open Navigation Drawer
+    Enter Edit Tasks Page
+    Create Task    ${TASK_NAME}[TaskForTest]
     Back To Main Page
     Wait Until Page Contains Element    ${TASK_SPINNER}
     Tracking Event    ${TASK_NAME}[TaskForTest]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]
@@ -44,14 +46,6 @@ Tracking Event With Hint Contain NewLine
     Tracking Event    ${TASK_NAME}[Default]    ${HINT_CONTENT}[NewLine]    ${HINT_EXPECT}[NewLine]
 
 *** Keywords ***
-New Task
-    [Arguments]    ${TASK_NAME}
-    Open Navigation Drawer
-    Enter Edit Tasks Page
-    Select New Task
-    Input Task Name    ${TASK_NAME}
-    Click OK Button
-
 Tracking Event
     [Arguments]    ${TASK_NAME}    ${HINT_CONTENT}    ${HINT_EXPECT}
     Click Element    ${TASK_SPINNER}

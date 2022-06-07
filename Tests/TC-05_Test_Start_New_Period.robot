@@ -26,20 +26,14 @@ Strat New Period With Same Task And Hint
     Tracking Event With New Period    ${TASK_NAME}[Default]    ${TASK_NAME}[Default]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]
 
 Strat New Period With Different Task And Hint
-    New Task    ${TASK_NAME}[TaskForTest]
+    Open Navigation Drawer
+    Enter Edit Tasks Page
+    Create Task    ${TASK_NAME}[TaskForTest]
     Back To Main Page
     Wait Until Page Contains Element    ${TASK_SPINNER}
     Tracking Event With New Period    ${TASK_NAME}[Default]    ${TASK_NAME}[TaskForTest]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]    ${HINT_CONTENT}[English]    ${HINT_EXPECT}[English]
 
 *** Keywords ***
-New Task
-    [Arguments]    ${TASK_NAME}
-    Open Navigation Drawer
-    Enter Edit Tasks Page
-    Select New Task
-    Input Task Name    ${TASK_NAME}
-    Click OK Button
-
 Tracking Event With New Period
     [Arguments]    ${TASK_NAME_1}    ${TASK_NAME_2}    ${HINT_CONTENT_1}    ${HINT_EXPECT_1}    ${HINT_CONTENT_2}    ${HINT_EXPECT_2}
     Click Element    ${TASK_SPINNER}
