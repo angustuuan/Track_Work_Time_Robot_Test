@@ -9,7 +9,7 @@ Test Setup    Run Keywords    Open TrackWorkTime Without Allow Permission
 Test Teardown    Close Application
 
 *** Variables ***
-&{TASK_NAME}    English=robotTest    Chinese=自動化測試    Number=9487
+&{TASK_NAME}    English=RobotTest    Chinese=自動化測試    Number=9487
 ...    Symbol=^%$#@!&*(    Mixed=!*自動化Test321    Empty=${EMPTY}
 
 *** Test Cases ***
@@ -36,15 +36,5 @@ Task Should Not Create When Cancel
 *** Keywords ***
 New Task
     [Arguments]    ${TASK_NAME}
-    Select New Task
-    Input Task Name    ${TASK_NAME}
-    Click OK Button
-    Wait Until Page Contains Element    //android.widget.TextView[@text='${TASK_NAME}']
-    Page Should Contain Element    //android.widget.TextView[@text='${TASK_NAME}']
-    Teardown for template    ${TASK_NAME}
-
-Teardown for template
-    [Arguments]    ${TASK_NAME}
-    Click Task    //android.widget.TextView[@text='${TASK_NAME}']
-    Click Delete Task
-    Click OK Button
+    Create Task    ${TASK_NAME}
+    [Teardown]    Delete Task    ${TASK_NAME}

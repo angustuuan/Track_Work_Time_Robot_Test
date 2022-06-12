@@ -5,36 +5,41 @@ Resource    ../Resources/Task_resource.robot
 Test Setup    Run Keywords    Open TrackWorkTime Without Allow Permission
 ...    AND    Open Navigation Drawer
 ...    AND    Enter Edit Tasks Page
-...    AND    Select New Task
-...    AND    Input Task Name    ${TASK_NAME}
-...    AND    Click OK Button
+...    AND    Create Task    ${TASK_NAME}
 Test Teardown    Run Keywords    Open Navigation Drawer
 ...    AND    Enter Edit Tasks Page
-...    AND    Click Task    ${ORIGIN_DEFAULT_TASK_XPATH}
-...    AND    Click Toggle Default
-...    AND    Click Task    ${ORIGIN_TASK_XPATH}
-...    AND    Click Delete Task
-...    AND    Click OK Button
+...    AND    Toggle Default    ${DEFAULT_XPATH_IN_MAIN_PAGE}
+...    AND    Delete Task    ${TASK_NAME}
 ...    AND    Close Application
 
 *** Variables ***
-${TASK_NAME}    ROBOT_TEST
-${ORIGIN_TASK_XPATH}    //android.widget.TextView[@text='${TASK_NAME}']
-${CURRENT_DEFAULT_TASK_NAME}    ROBOT_TEST *
-${CURRENT_DEFAULT_TASK_XPATH}    //android.widget.TextView[@text='${CURRENT_DEFAULT_TASK_NAME}']
-
-${MAIN_PAGE_DEFAULT_TASK_XPATH}    //android.widget.TextView[@text='${CURRENT_DEFAULT_TASK_NAME}']
-${ORIGIN_DEFAULT_TASK_XPATH}    //android.widget.TextView[@text='Default']
+${TASK_NAME}    RobotTest
+${TASK_NAME_WHEN_DEFAULT}    RobotTest *
+${TASK_XPATH}    //android.widget.TextView[contains(@text, '${TASK_NAME}')]
+${TASK_XPATH_IN_MAIN_PAGE}    //android.widget.TextView[contains(@text, '${TASK_NAME}')]
+${DEFAULT_XPATH_IN_MAIN_PAGE}    //android.widget.TextView[contains(@text, 'Default')]
 
 *** Test Cases ***
-Toggle Default
-    Click Task    ${ORIGIN_TASK_XPATH}
-    Click Toggle Default
-    Page Should Contain Element    ${CURRENT_DEFAULT_TASK_XPATH}
-    Verify Default Task Show In Main Page
+Set Task To Default
+    Toggle Default    ${TASK_XPATH}
+    Element Text Should Be    ${TASK_XPATH}    ${TASK_NAME_WHEN_DEFAULT}
+    Verify Default Task Show In Main Page    ${TASK_XPATH_IN_MAIN_PAGE}
+
+Set Task To Non-default
+    Toggle Default    ${TASK_XPATH}
+    Element Text Should Be    ${TASK_XPATH}    ${TASK_NAME_WHEN_DEFAULT}
+    Toggle Default    ${TASK_XPATH}
+    Element Text Should Be    ${TASK_XPATH}    ${TASK_NAME}
+    Verify Default Task Show In Main Page    ${DEFAULT_XPATH_IN_MAIN_PAGE}
 
 *** Keywords ***
+Toggle Default
+    [Arguments]    ${TASK_XPATH_TO_TOGGLE}
+    Click Task    ${TASK_XPATH_TO_TOGGLE}
+    Click Toggle Default
+
 Verify Default Task Show In Main Page
+    [Arguments]    ${EXPECTED_TASK_XPATH}
     Back To Main Page
-    Page Should Contain Element    ${MAIN_PAGE_DEFAULT_TASK_XPATH}
+    Page Should Contain Element    ${EXPECTED_TASK_XPATH}
 
