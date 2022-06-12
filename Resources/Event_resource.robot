@@ -22,7 +22,7 @@ ${STOP_TRACKING_RADIO_BUTTON}    //android.widget.RadioButton[@text='Stop Tracki
 ${DATE_VIEW}    //android.widget.TextView[@resource-id='org.zephyrsoft.trackworktime:id/date']
 ${TIME_VIEW}    //android.widget.TextView[@resource-id='org.zephyrsoft.trackworktime:id/time']
 ${TASK_SPINNER}    //android.widget.Spinner[@resource-id='org.zephyrsoft.trackworktime:id/task']
-${HINT_EDIT_TEXT}    //android.widget.EditText[@text='Hint (optional)']
+${HINT_EDIT_TEXT}    //android.widget.EditText[@resource-id='org.zephyrsoft.trackworktime:id/text']
 
 ${TIME_MODE_BUTTON}    //android.widget.ImageButton[@resource-id='android:id/toggle_mode']
 ${TIME_HOUR_EDIT_TEXT}    //android.widget.EditText[@resource-id='android:id/input_hour']
@@ -33,6 +33,14 @@ ${AM_PM_SPINNER}    //android.widget.Spinner[@resource-id='android:id/am_pm_spin
 Enter Edit Events Page
     Wait Until Page Contains Element    ${EDIT_EVENTS_VIEW}
     Click Element    ${EDIT_EVENTS_VIEW}
+
+Create Task Then Enter Edit Events Page
+    [Arguments]    ${TASK_NAME}
+    Enter Edit Tasks Page
+    Create Task    ${TASK_NAME}
+    Back To Main Page
+    Open Navigation Drawer
+    Enter Edit Events Page
 
 Select New Event
     Wait Until Page Contains Element    ${MORE_OPTIONS_VIEW}

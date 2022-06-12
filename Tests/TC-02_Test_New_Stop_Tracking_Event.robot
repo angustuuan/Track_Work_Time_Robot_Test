@@ -9,15 +9,22 @@ Test Teardown    Run Keywords    Close Application
 
 *** Test Cases ***
 Create Event With Specific Data
+    [Template]    Create Event
+    12    0    AM
+    01    01    PM
+
+*** Keywords ***
+Create Event
+    [Arguments]    ${HOUR}    ${MINUTEHOUR}    ${AM_PM}
     Select New Event
     Click Stop Tracking Radio Button
     Click Event Date
     Click OK Button
-    ${expected_date}=    Get Element Attribute    ${DATE_VIEW}   text
+    ${expected_date} =    Get Element Attribute    ${DATE_VIEW}   text
     Click Event Time
-    Input Event Time    8    35    PM
+    Input Event Time    ${HOUR}    ${MINUTEHOUR}    ${AM_PM}
     Click OK Button
-    ${expected_time}=    Get Element Attribute    ${TIME_VIEW}   text
+    ${expected_time} =    Get Element Attribute    ${TIME_VIEW}   text
     Click Save Changes Button
     Check First Event Detail    ${expected_date}    ${expected_time}    OUT
     Delete First Event
