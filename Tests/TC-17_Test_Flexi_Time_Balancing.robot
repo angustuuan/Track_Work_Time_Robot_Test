@@ -26,6 +26,27 @@ ${Friday}    //android.widget.TextView[@text='Friday']
 ${Enable_Flexi_Time}    //android.widget.TextView[@text='Enable Flexi Time']
 ${Flexi_Time_Target_Name}    45:00
 ${Default_Flexi_Target_Time}    00:00
+@{TargetList}    123    ${EMPTY}    ^%$#@!&*    測試格式    45:00
+
+*** Test Cases ***
+Flexi Time Balancing
+    Select Flexi Time Target
+    Clear Default Target
+    Edit Flexi Time Target
+    Click OK Button
+    Sleep    1
+    Scroll Down And Check Element Exist    ${Friday}
+    Select Working Day
+    Sleep    1
+    Scroll Up And Check Element Exist    ${Enable_Flexi_Time}
+    Check Enable Flexi
+    Back To Main Page
+    Sleep    1
+    Swipe By Percent  20    25    70    25
+    Swipe By Percent  20    25    70    25
+    Swipe By Percent  70    25    20    25
+    Swipe By Percent  70    25    20    25
+
 
 *** Keywords ***
 Enter Options Page
@@ -37,12 +58,13 @@ Select Flexi Time Target
     Click Element    ${Flexi_Time_Target}
 Edit Flexi Time Target
     Wait Until Page Contains Element    ${EDIT_TEXT_PANNEL}
-    Input Text    ${EDIT_TEXT_PANNEL}    ${Flexi_Time_Target_Name}
-
-Teardown Flexi Time Target
-    Wait Until Page Contains Element    ${EDIT_TEXT_PANNEL}
-    Input Text    ${EDIT_TEXT_PANNEL}    ${Default_Flexi_Target_Time}
-
+    FOR    ${element}    IN    @{TargetList}
+        Input Text    ${EDIT_TEXT_PANNEL}    ${element}  
+        Sleep    1
+        IF    $element == '45:00'    BREAK
+        Clear Text    ${EDIT_TEXT_PANNEL}
+    END
+    
 Clear Default Target
     Wait Until Page Contains Element    ${EDIT_TEXT_PANNEL}
     Clear Text    ${EDIT_TEXT_PANNEL}
@@ -83,17 +105,3 @@ Check Enable Flexi
     Wait Until Page Contains Element    ${Enable_Flexi_Time}
     Click Element    ${Enable_Flexi_Time}
 
-*** Test Cases ***
-Flexi Time Balancing
-    Select Flexi Time Target
-    Clear Default Target
-    Edit Flexi Time Target
-    Click OK Button
-    Sleep    1
-    Scroll Down And Check Element Exist    ${Friday}
-    Select Working Day
-    Sleep    1
-    Scroll Up And Check Element Exist    ${Enable_Flexi_Time}
-    Check Enable Flexi
-    Back To Main Page
-    Sleep    1
