@@ -1,9 +1,9 @@
 :start
 @echo on
-@SET /P test_case_num=Type the test case number (01~17): 
-@echo Execute TC-%test_case_num%
+@SET /P test_suite_num=Type the test suite number (01~17): 
+@echo Execute TS-%test_suite_num%
 @echo.
 @echo off
-call robot -d Output ./Tests/TC-%test_case_num%*
+call robot -d Output ./Tests/TS-%test_suite_num%*
 @echo.
 goto start
