@@ -1,5 +1,7 @@
 *** Setting ***
 Library    AppiumLibrary
+Library    String
+Library    Collections
 
 *** Variables ***
 #*** Appium Settings ***
