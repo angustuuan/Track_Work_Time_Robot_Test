@@ -17,7 +17,7 @@ ${DATEA}    Get Current Date    result_format=%#I:%#M %p
 ${WEEK_TABLE}    id=org.zephyrsoft.trackworktime:id/weekTable
 
 *** Test Cases ***
-Stop Tracking Event
+TC-12 Stop Tracking Event
     Click Element    ${CLOCK_IN_BUTTON}
 
     Click Element    ${CLOCK_OUT_BUTTON}

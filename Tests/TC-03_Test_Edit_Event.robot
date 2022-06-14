@@ -14,7 +14,7 @@ Test Teardown    Run Keywords    Delete First Event
 ${TASK_NAME}    RobotTest
 
 *** Test Cases ***
-Edit Event To Start Tracking With Different Specific Data
+TC-05 Edit Event To Start Tracking With Different Specific Data
     [Template]    Edit Event To Start Tracking
     ${TASK_NAME}    1    0    AM    Test Message.
     ${TASK_NAME}    6    10    AM    中文訊息。
@@ -22,7 +22,7 @@ Edit Event To Start Tracking With Different Specific Data
     ${TASK_NAME}    01    01    PM    ^%$#@!&*
     ${TASK_NAME}    12    1    PM    Mess訊息^%110
 
-Edit Event To Stop Tracking With Different Specific Data
+TC-06 Edit Event To Stop Tracking With Different Specific Data
     [Template]    Edit Event To Stop Tracking
     12    0    AM
     01    01    PM

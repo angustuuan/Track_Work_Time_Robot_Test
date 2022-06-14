@@ -22,10 +22,10 @@ ${WEEK_TABLE}    id=org.zephyrsoft.trackworktime:id/weekTable
 &{HINT_EXPECT}    Default=Hint (optional)    English=TestHint
 
 *** Test Cases ***
-Strat New Period With Same Task And Hint
+TC-10 Strat New Period With Same Task And Hint
     Tracking Event With New Period    ${TASK_NAME}[Default]    ${TASK_NAME}[Default]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]
 
-Strat New Period With Different Task And Hint
+TC-11 Strat New Period With Different Task And Hint
     Open Navigation Drawer
     Enter Edit Tasks Page
     Create Task    ${TASK_NAME}[TaskForTest]

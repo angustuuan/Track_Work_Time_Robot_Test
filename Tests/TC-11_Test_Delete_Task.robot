@@ -13,11 +13,11 @@ ${Target_Task}    del_target
 
 
 *** Test Cases ***
-Delete Task
+TC-24-1 Delete Task
     New Task    ${Target_Task}
     Delete Task    ${Target_Task}
 
-Task Should Not Delete When Cancel
+TC-24-2 Task Should Not Delete When Cancel
     New Task    ${Target_Task}
     Delete Cancel    ${Target_Task}
 

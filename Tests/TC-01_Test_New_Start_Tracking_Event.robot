@@ -11,7 +11,7 @@ Test Teardown    Run Keywords    Close Application
 ${TASK_NAME}    RobotTest
 
 *** Test Cases ***
-Create Multiple Default Events
+TC-01 Create Multiple Default Events
     Select New Event
     Click Save Changes Button
     Select New Event
@@ -19,13 +19,13 @@ Create Multiple Default Events
     Delete First Event
     Delete First Event
 
-Event Should Not Create When Cancel
+TC-02 Event Should Not Create When Cancel
     Select New Event
     Click CANCEL Button
     Wait Until Page Does Not Contain Element    ${FIRST_EVENT_DATE_VIEW}
     Page Should Not Contain Element    ${FIRST_EVENT_DATE_VIEW}
 
-Create Event With Different Specific Data
+TC-03 Create Event With Different Specific Data
     [Template]    Create Event
     ${TASK_NAME}    1    0    AM    Test Message.
     ${TASK_NAME}    6    10    AM    中文訊息。

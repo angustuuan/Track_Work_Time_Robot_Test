@@ -23,16 +23,16 @@ ${ENABLE}    True
 ${DISABLE}    False
 
 *** Test Cases ***
-Toggle Activation State To Disable
+TC-19 Toggle Activation State To Disable
     Toggle Activation    ${DISABLE}
 
-Toggle Activation State To Enable
+TC-20 Toggle Activation State To Enable
     Toggle Activation    ${DISABLE}
     Open Navigation Drawer
     Enter Edit Tasks Page
     Toggle Activation    ${ENABLE}
 
-Activation State Should Not Change When Cancel
+TC-21 Activation State Should Not Change When Cancel
     Click Task    ${TASK_XPATH}
     Click Toggle Activation State
     Click CANCEL Button

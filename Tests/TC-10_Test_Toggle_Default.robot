@@ -20,12 +20,12 @@ ${TASK_XPATH_IN_MAIN_PAGE}    //android.widget.TextView[contains(@text, '${TASK_
 ${DEFAULT_XPATH_IN_MAIN_PAGE}    //android.widget.TextView[contains(@text, 'Default')]
 
 *** Test Cases ***
-Set Task To Default
+TC-22 Set Task To Default
     Toggle Default    ${TASK_XPATH}
     Element Text Should Be    ${TASK_XPATH}    ${TASK_NAME_WHEN_DEFAULT}
     Verify Default Task Show In Main Page    ${TASK_XPATH_IN_MAIN_PAGE}
 
-Set Task To Non-default
+TC-23 Set Task To Non-default
     Toggle Default    ${TASK_XPATH}
     Element Text Should Be    ${TASK_XPATH}    ${TASK_NAME_WHEN_DEFAULT}
     Toggle Default    ${TASK_XPATH}

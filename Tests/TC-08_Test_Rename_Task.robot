@@ -17,7 +17,7 @@ ${ORIGIN_TASK_XPATH}    //android.widget.TextView[@text='${ORIGINAL_TASK_NAME}']
 ...    Symbol=^%$#@!&*(    Mixed=!*自動化Test321    Empty=${EMPTY}
 
 *** Test Cases ***
-Rename Task With Different Task Name
+TC-16 Rename Task With Different Task Name
     [Template]    Rename Task
     ${UPDATED_TASK_NAME}[English]
     ${UPDATED_TASK_NAME}[Chinese]
@@ -26,11 +26,11 @@ Rename Task With Different Task Name
     ${UPDATED_TASK_NAME}[Mixed]
     ${UPDATED_TASK_NAME}[Empty]
 
-Rename Task With Random Task Name
+TC-17 Rename Task With Random Task Name
     ${RANDOM} =    Generate Random String
     Rename Task    ${RANDOM}
 
-Task Should Not Rename When Cancel
+TC-18 Task Should Not Rename When Cancel
     Click Task    ${ORIGIN_TASK_XPATH}
     Click Rename Task
     Clear Input Task Name

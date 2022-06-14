@@ -8,7 +8,7 @@ Test Setup    Run Keywords    Open TrackWorkTime Without Allow Permission
 Test Teardown    Run Keywords    Close Application
 
 *** Test Cases ***
-Create Event With Specific Data
+TC-03 Create Event With Specific Data
     [Template]    Create Event
     12    0    AM
     01    01    PM

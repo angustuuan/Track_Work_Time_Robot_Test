@@ -22,10 +22,10 @@ ${WEEK_TABLE}    id=org.zephyrsoft.trackworktime:id/weekTable
 &{HINT_EXPECT}    Default=Hint (optional)    BlankSpace=${SPACE}    English=TestHint    Symbol=~!@#$%^&*()    NewLine=\n
 
 *** Test Cases ***
-Tracking Event With Default Task And Hint
+TC-07 Tracking Event With Default Task And Hint
     Tracking Event    ${TASK_NAME}[Default]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]
 
-Tracking Event With Task Selected
+TC-08 Tracking Event With Task Selected
     Open Navigation Drawer
     Enter Edit Tasks Page
     Create Task    ${TASK_NAME}[TaskForTest]
@@ -33,16 +33,16 @@ Tracking Event With Task Selected
     Wait Until Page Contains Element    ${TASK_SPINNER}
     Tracking Event    ${TASK_NAME}[TaskForTest]    ${HINT_CONTENT}[Default]    ${HINT_EXPECT}[Default]
 
-Tracking Event With Hint Contain Blank Space
+TC-09-1 Tracking Event With Hint Contain Blank Space
     Tracking Event    ${TASK_NAME}[Default]    ${HINT_CONTENT}[BlankSpace]    ${HINT_EXPECT}[BlankSpace]
 
-Tracking Event With Hint Contain English
+TC-09-2 Tracking Event With Hint Contain English
     Tracking Event    ${TASK_NAME}[Default]    ${HINT_CONTENT}[English]    ${HINT_EXPECT}[English]
 
-Tracking Event With Hint Contain Symbol
+TC-09-3 Tracking Event With Hint Contain Symbol
     Tracking Event    ${TASK_NAME}[Default]    ${HINT_CONTENT}[Symbol]    ${HINT_EXPECT}[Symbol]
 
-Tracking Event With Hint Contain NewLine
+TC-09-4 Tracking Event With Hint Contain NewLine
     Tracking Event    ${TASK_NAME}[Default]    ${HINT_CONTENT}[NewLine]    ${HINT_EXPECT}[NewLine]
 
 *** Keywords ***

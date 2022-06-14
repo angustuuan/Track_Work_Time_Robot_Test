@@ -36,7 +36,7 @@ ${MULTI_INSERT_VIEW}    //android.widget.CheckedTextView[@text='Multi-Insert']
 ${MULTI_INSERT_BUTTON}    //android.widget.Button[@text='MULTI-INSERT']
 
 *** Test Cases ***
-Batch insert task
+TC-25 Batch insert task
     Open Navigation Drawer
     Entet Muliti Insert Page
     Select DateFrom
