@@ -31,6 +31,10 @@ Edit Flexi Time Target
         Clear Text    ${EDIT_TEXT_PANNEL}
     END
 
+Edit Flexi Time Target With Correct Input
+    Wait Until Page Contains Element    ${EDIT_TEXT_PANNEL}
+    Input Text    ${EDIT_TEXT_PANNEL}    45:00
+
 Clear Default Target
     Wait Until Page Contains Element    ${EDIT_TEXT_PANNEL}
     Clear Text    ${EDIT_TEXT_PANNEL}
