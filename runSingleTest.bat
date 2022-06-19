@@ -1,6 +1,6 @@
 :start
 @echo on
-@SET /P test_suite_num=Type the test suite number (01~17): 
+@SET /P test_suite_num=Type the test suite number (01~13): 
 @echo Execute TS-%test_suite_num%
 @echo.
 @echo off

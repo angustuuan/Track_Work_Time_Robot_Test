@@ -18,7 +18,7 @@ Test Teardown    Run Keywords    Open Navigation Drawer
 *** Variables ***
 
 *** Test Cases ***
-TC-30 Flexi Time Balancing
+TC-28 Flexi Time Balancing
     Select Flexi Time Target
     Clear Default Target
     Edit Flexi Time Target
