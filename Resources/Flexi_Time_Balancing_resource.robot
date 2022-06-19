@@ -1,5 +1,7 @@
 *** Settings ***
 Library    AppiumLibrary
+Resource    ../Resources/Main_resource.robot
+Resource    ../Resources/Task_resource.robot
 
 *** Variables ***
 ${OPTIONS_VIEW}    //android.widget.CheckedTextView[@text='Options']
@@ -24,12 +26,16 @@ Select Flexi Time Target
     Click Element    ${Flexi_Time_Target}
 Edit Flexi Time Target
     Wait Until Page Contains Element    ${EDIT_TEXT_PANNEL}
-    FOR    ${element}    IN    @{TargetList}
-        Input Text    ${EDIT_TEXT_PANNEL}    ${element}
-        Sleep    1
-        IF    $element == '45:00'    BREAK
-        Clear Text    ${EDIT_TEXT_PANNEL}
-    END
+    # 把以下註解解開，測試會過
+    # FOR    ${element}    IN    @{TargetList}
+    #     Input Text    ${EDIT_TEXT_PANNEL}    ${element}
+    #     Sleep    1
+    #     IF    $element == '45:00'    BREAK
+    #     Clear Text    ${EDIT_TEXT_PANNEL}
+    # END
+
+    #使用這段的話測試會fail
+    Input Text    ${EDIT_TEXT_PANNEL}    45:800000
 
 Edit Flexi Time Target With Correct Input
     Wait Until Page Contains Element    ${EDIT_TEXT_PANNEL}

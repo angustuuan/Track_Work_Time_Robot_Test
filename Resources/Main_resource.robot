@@ -2,7 +2,6 @@
 Library    AppiumLibrary
 Library    String
 Library    Collections
-
 *** Variables ***
 #*** Appium Settings ***
 ${APPIUM_URL}    http://localhost:4723/wd/hub
