@@ -16,8 +16,12 @@ TC-01 Create Multiple Default Events
     Click Save Changes Button
     Select New Event
     Click Save Changes Button
+    Wait Until Page Contains Element    ${FIRST_EVENT_DATE_VIEW}
+    Page Should Contain Element    ${FIRST_EVENT_DATE_VIEW}
     Delete First Event
     Delete First Event
+    Wait Until Page Does Not Contain Element    ${FIRST_EVENT_DATE_VIEW}
+    Page Should Not Contain Element    ${FIRST_EVENT_DATE_VIEW}
 
 TC-02 Event Should Not Create When Cancel
     Select New Event
